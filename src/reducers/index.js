@@ -1,12 +1,14 @@
 import {combineReducers} from 'redux'
+import {setDefaultPoint} from '../actions';
 
-const totalPoint = (state = 0, action) => {
+const point = (state = setDefaultPoint(), action) => {
+    console.log("reducers point");
     switch (action.type) {
         case "SET_POINT":
             return action.totalPoint;
         default:
-            return state;
+            return state.totalPoint;
     }
 };
 
-export default combineReducers({totalPoint})
+export default combineReducers({point})
